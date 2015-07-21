@@ -1,12 +1,23 @@
 //deals the cards
 var showCards = document.getElementById("cards");
+var cardContainer = document.getElementById('container');
+var button = document.createElement('button');
+  button.id='reset!';
+  button.innerHTML = "Reset!";
 
 showCards.onclick = function(){
-  var cardContainer = document.getElementById('container');
   cardContainer.innerHTML = "";
   displayCards();
-  var resetAppear = document.getElementById('reset');
-  resetAppear.style.visibility = 'visible';
+  showCards.innerHTML = "Redeal!";
+  document.body.insertBefore(button, cardContainer);
+};
+
+// Removes card
+button.onclick = function(){
+  cardContainer.innerHTML = "";
+  showCards.innerHTML = "Deal!";
+  button.remove();
+
 };
 
 //run when Deal is clicked
@@ -14,6 +25,7 @@ function displayCards(){
   var deck = newDeck();
   var shuffledCards = shuffleCards(deck);
 
+  //puts cards on page
   for(var i=0; i < deck.length; i++){
     var card = document.createElement('div');
     card.className = "card";
@@ -23,16 +35,6 @@ function displayCards(){
 
   }
 }
-
-
-//Removes cards
-var resetCards = document.getElementById('reset');
-resetCards.onclick = function(){
-    var clearBoard = document.getElementById('container');
-  clearBoard.innerHTML = "";
-  var resetGone = document.getElementById('reset');
-  resetGone.style.visibility = 'hidden';
-};
 
 // Creates a deck of 52 cards
 function newDeck(){
@@ -64,7 +66,7 @@ function newDeck(){
     }
   }
   return deck;
-};
+}
 
 // Shuffles the Deck
 function shuffleCards(cardDeck){
