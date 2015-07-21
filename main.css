@@ -26,3 +26,7 @@ button:hover {
   padding: 15px;
   border: 2px black solid
 }
+
+#reset{
+  visibility: hidden;
+}
