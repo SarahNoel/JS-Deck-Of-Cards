@@ -1,21 +1,21 @@
-//deals the cards
-var showCards = document.getElementById("cards");
+//defines variables
+var showCards = document.getElementById('cards');
 var cardContainer = document.getElementById('container');
 var button = document.createElement('button');
-  button.id='reset!';
-  button.innerHTML = "Reset!";
+  button.innerHTML = 'Reset!';
 
+//deals the cards
 showCards.onclick = function(){
   cardContainer.innerHTML = "";
   displayCards();
-  showCards.innerHTML = "Redeal!";
+  showCards.innerHTML = 'Redeal!';
   document.body.insertBefore(button, cardContainer);
 };
 
-// Removes card
+// Removes cards
 button.onclick = function(){
   cardContainer.innerHTML = "";
-  showCards.innerHTML = "Deal!";
+  showCards.innerHTML = 'Deal!';
   button.remove();
 
 };
@@ -32,7 +32,6 @@ function displayCards(){
     var cardContainer = document.getElementById('container');
     cardContainer.appendChild(card);
     card.style.backgroundImage = "url(images/" + shuffledCards[i].suit + "-" + shuffledCards[i].card + ".png" + ")";
-
   }
 }
 
